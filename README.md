@@ -71,8 +71,9 @@ npx create-next-app@latest -e https://github.com/mhmdbhsk/ndd project-name
    # or
    npm run dev
    # or
-   pnpm 
+   pnpm dev
    # or
+   bun dev
    ```
 
 Now, you can open [http://localhost:3000](http://localhost:3000) in your browser to see your app in action!
