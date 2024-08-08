@@ -7,7 +7,7 @@ import { ThemeSwitcher } from '@/components/theme-switcher'
 import { LayoutGroup, motion } from 'framer-motion'
 import { IconBrandGithub, IconBrandJustd } from 'justd-icons'
 import { usePathname } from 'next/navigation'
-import { ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
+import { ListBox, ListBoxItem, type ListBoxItemProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { Button, buttonStyles, Link, Sheet, SheetBody, SheetContent, SheetHeader, SheetTitle, useMediaQuery } from 'ui'
 
@@ -95,9 +95,11 @@ const navStyles = tv({
 function NavResponsive() {
   const [isOpen, setOpen] = React.useState(false)
   const pathname = usePathname()
+
   useEffect(() => {
     setOpen(false)
   }, [pathname])
+
   return (
     <Sheet onOpenChange={setOpen} isOpen={isOpen}>
       <Button size="small" appearance="outline">
