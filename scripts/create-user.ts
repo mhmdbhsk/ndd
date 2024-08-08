@@ -1,6 +1,6 @@
-import { user } from "@/schema/user";
-import bcrypt from "bcrypt";
-import { client, sdb } from "./sdb";
+import { user } from '@/schema/user';
+import bcrypt from 'bcrypt';
+import { client, sdb } from './sdb';
 
 async function main() {
   await client.connect();

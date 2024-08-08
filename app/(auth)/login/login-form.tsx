@@ -1,18 +1,18 @@
-'use client'
+'use client';
 
-import type { FormEvent } from 'react'
+import type { FormEvent } from 'react';
 
-import { toast } from 'sonner'
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Checkbox, Form, Link, TextField } from 'ui'
+import { toast } from 'sonner';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Checkbox, Form, Link, TextField } from 'ui';
 
 export function LoginForm() {
   const submit = (e: FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    toast.success('Login Successful')
-  }
+    toast.success('Login Successful');
+  };
   return (
-    <Card className="sm:border-border border-transparent sm:rounded-xl rounded-none border-y-border">
+    <Card className="rounded-none border-transparent border-y-border sm:rounded-xl sm:border-border">
       <CardHeader>
         <CardTitle>Login</CardTitle>
         <CardDescription>Login to your account</CardDescription>
@@ -31,5 +31,5 @@ export function LoginForm() {
         </Form>
       </CardContent>
     </Card>
-  )
+  );
 }

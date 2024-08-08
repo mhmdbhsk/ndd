@@ -1,6 +1,6 @@
-import { Container } from '@/components/container'
-import { Header } from '@/components/header'
-import { Card, CardDescription, CardHeader, CardTitle, Grid, GridItem, Link } from 'ui'
+import { Container } from '@/components/container';
+import { Header } from '@/components/header';
+import { Card, CardDescription, CardHeader, CardTitle, Grid, GridItem, Link } from 'ui';
 
 export default function Home() {
   return (
@@ -15,9 +15,9 @@ export default function Home() {
           columns={{
             initial: 1,
             sm: 2,
-            lg: 3
+            lg: 3,
           }}
-          className="[&_a]:cursor-pointer [&_a]:inset-0 [&_a]:absolute [&_a]:size-full [&_.grid-cell]:relative"
+          className="[&_.grid-cell]:relative [&_a]:absolute [&_a]:inset-0 [&_a]:size-full [&_a]:cursor-pointer"
         >
           <GridItem>
             <Link target="_blank" href="https://justd.co" aria-label="Justd" />
@@ -60,5 +60,5 @@ export default function Home() {
         </Grid>
       </Container>
     </div>
-  )
+  );
 }

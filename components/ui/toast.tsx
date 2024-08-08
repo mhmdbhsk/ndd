@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import React from 'react'
+import React from 'react';
 
-import { useTheme } from '@/components/theme-provider'
-import { IconCheck, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from 'justd-icons'
-import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
-import { twJoin } from 'tailwind-merge'
+import { useTheme } from '@/components/theme-provider';
+import { IconCheck, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from 'justd-icons';
+import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner';
+import { twJoin } from 'tailwind-merge';
 
-import { buttonStyles } from './button'
+import { buttonStyles } from './button';
 
 const Toast = ({ ...props }: ToasterProps) => {
-  const { theme = 'system' } = useTheme()
+  const { theme = 'system' } = useTheme();
   return (
     <ToasterPrimitive
       theme={theme as ToasterProps['theme']}
@@ -20,7 +20,7 @@ const Toast = ({ ...props }: ToasterProps) => {
         success: <IconCheck />,
         warning: <IconTriangleInfoFill />,
         error: <IconTriangleInfoFill />,
-        loading: <IconLoader className="animate-spin size-4" />
+        loading: <IconLoader className="size-4 animate-spin" />,
       }}
       toastOptions={{
         unstyled: true,
@@ -34,7 +34,7 @@ const Toast = ({ ...props }: ToasterProps) => {
             '[&:has([data-description])_[data-title]]:!font-medium [&:has([data-description])_[data-title]]:!text-lg',
             '[&>[data-button]]:absolute [&>[data-button=true]]:bottom-4',
             '[&>[data-action=true]]:right-4',
-            '[&>[data-cancel=true]]:left-4'
+            '[&>[data-cancel=true]]:left-4',
           ),
           icon: 'absolute top-1/2 -translate-y-1/2',
           content: '[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9',
@@ -48,19 +48,19 @@ const Toast = ({ ...props }: ToasterProps) => {
           cancelButton: buttonStyles({
             className: '',
             size: 'extra-small',
-            appearance: 'outline'
+            appearance: 'outline',
           }),
           actionButton: buttonStyles({
             className: 'self-end justify-self-end',
-            size: 'extra-small'
+            size: 'extra-small',
           }),
           closeButton:
-            '[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-3 left-auto grid place-content-center rounded-md hover:bg-black/20 dark:hover:bg-white/20 border-0 [&_svg]:text-fg'
-        }
+            '[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-3 left-auto grid place-content-center rounded-md hover:bg-black/20 dark:hover:bg-white/20 border-0 [&_svg]:text-fg',
+        },
       }}
       {...props}
     />
-  )
-}
+  );
+};
 
-export { Toast }
+export { Toast };

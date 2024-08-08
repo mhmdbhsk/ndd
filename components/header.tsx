@@ -1,24 +1,24 @@
-'use client'
+'use client';
 
-import { Container } from '@/components/container'
-import { CardDescription, CardHeader, CardTitle } from 'ui'
+import { Container } from '@/components/container';
+import { CardDescription, CardHeader, CardTitle } from 'ui';
 
 interface HeaderProps {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
 export function Header({ title, description }: HeaderProps) {
   return (
-    <header className="border-b py-6 sm:py-12 mb-12 -mt-6">
+    <header className="-mt-6 mb-12 border-b py-6 sm:py-12">
       <Container>
-        <CardHeader className="p-0 max-w-xl">
-          <CardTitle level={1} className="sm:text-2xl text-xl">
+        <CardHeader className="max-w-xl p-0">
+          <CardTitle level={1} className="text-xl sm:text-2xl">
             {title}
           </CardTitle>
-          <CardDescription className="sm:text-base text-sm">{description}</CardDescription>
+          <CardDescription className="text-sm sm:text-base">{description}</CardDescription>
         </CardHeader>
       </Container>
     </header>
-  )
+  );
 }

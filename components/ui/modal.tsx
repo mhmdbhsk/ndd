@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import type * as React from 'react';
 
-import type { ModalOverlayProps as ModalOverlayPrimitiveProps } from 'react-aria-components'
+import type { ModalOverlayProps as ModalOverlayPrimitiveProps } from 'react-aria-components';
 import {
   Button as ButtonPrimitive,
   composeRenderProps,
   type DialogProps,
   DialogTrigger as DialogTriggerPrimitive,
   Modal as ModalPrimitive,
-  ModalOverlay as ModalOverlayPrimitive
-} from 'react-aria-components'
-import { tv, type VariantProps } from 'tailwind-variants'
+  ModalOverlay as ModalOverlayPrimitive,
+} from 'react-aria-components';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import {
   Dialog,
@@ -21,52 +21,52 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogTitle
-} from './dialog'
+  DialogTitle,
+} from './dialog';
 
-const Modal = DialogTriggerPrimitive
-const ModalTrigger = ButtonPrimitive
-const ModalHeader = DialogHeader
-const ModalTitle = DialogTitle
-const ModalDescription = DialogDescription
-const ModalFooter = DialogFooter
-const ModalBody = DialogBody
-const ModalClose = DialogClose
+const Modal = DialogTriggerPrimitive;
+const ModalTrigger = ButtonPrimitive;
+const ModalHeader = DialogHeader;
+const ModalTitle = DialogTitle;
+const ModalDescription = DialogDescription;
+const ModalFooter = DialogFooter;
+const ModalBody = DialogBody;
+const ModalClose = DialogClose;
 
 const modalOverlayStyles = tv({
   base: [
     'fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full',
     'flex items-end text-center sm:items-center sm:justify-center',
-    '[--visual-viewport-vertical-padding:16px] sm:[--visual-viewport-vertical-padding:32px]'
+    '[--visual-viewport-vertical-padding:16px] sm:[--visual-viewport-vertical-padding:32px]',
   ],
   variants: {
     isBlurred: {
       true: 'backdrop-blur',
-      false: 'bg-black/15 dark:bg-black/40'
+      false: 'bg-black/15 dark:bg-black/40',
     },
     isEntering: {
-      true: 'ease-out animate-in fade-in'
+      true: 'ease-out animate-in fade-in',
     },
     isExiting: {
-      true: 'duration-200 ease-in animate-out fade-out'
-    }
-  }
-})
+      true: 'duration-200 ease-in animate-out fade-out',
+    },
+  },
+});
 const modalContentStyles = tv({
   base: [
     'max-h-full w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg',
     'ring-1 ring-zinc-950/5 dark:ring-white/15',
-    'w-full'
+    'w-full',
   ],
   variants: {
     isEntering: {
       true: [
         'animate-in duration-200 fade-in-0 slide-in-from-bottom-1/2',
-        'sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]'
-      ]
+        'sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]',
+      ],
     },
     isExiting: {
-      true: ['duration-200 ease-in animate-out slide-out-to-bottom ', 'sm:exiting:slide-out-to-top-[10%]']
+      true: ['duration-200 ease-in animate-out slide-out-to-bottom ', 'sm:exiting:slide-out-to-top-[10%]'],
     },
     size: {
       xs: 'sm:max-w-xs',
@@ -77,27 +77,27 @@ const modalContentStyles = tv({
       '2xl': 'sm:max-w-2xl',
       '3xl': 'sm:max-w-3xl',
       '4xl': 'sm:max-w-4xl',
-      '5xl': 'sm:max-w-5xl'
-    }
+      '5xl': 'sm:max-w-5xl',
+    },
   },
   defaultVariants: {
-    size: 'lg'
-  }
-})
+    size: 'lg',
+  },
+});
 
 interface ModalContentProps
   extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
     Omit<ModalOverlayPrimitiveProps, 'className'>,
     VariantProps<typeof modalContentStyles> {
-  'aria-label'?: DialogProps['aria-label']
-  'aria-labelledby'?: DialogProps['aria-labelledby']
-  role?: DialogProps['role']
-  closeButton?: boolean
-  isBlurred?: boolean
+  'aria-label'?: DialogProps['aria-label'];
+  'aria-labelledby'?: DialogProps['aria-labelledby'];
+  role?: DialogProps['role'];
+  closeButton?: boolean;
+  isBlurred?: boolean;
   classNames?: {
-    overlay?: ModalOverlayPrimitiveProps['className']
-    content?: ModalOverlayPrimitiveProps['className']
-  }
+    overlay?: ModalOverlayPrimitiveProps['className'];
+    content?: ModalOverlayPrimitiveProps['className'];
+  };
 }
 
 const ModalContent = ({
@@ -110,7 +110,7 @@ const ModalContent = ({
   closeButton = true,
   ...props
 }: ModalContentProps) => {
-  const _isDismissable = role === 'alertdialog' ? false : isDismissable
+  const _isDismissable = role === 'alertdialog' ? false : isDismissable;
   return (
     <ModalOverlayPrimitive
       isDismissable={_isDismissable}
@@ -118,8 +118,8 @@ const ModalContent = ({
         return modalOverlayStyles({
           ...renderProps,
           isBlurred,
-          className
-        })
+          className,
+        });
       })}
       {...props}
     >
@@ -128,8 +128,8 @@ const ModalContent = ({
           modalContentStyles({
             ...renderProps,
             size,
-            className
-          })
+            className,
+          }),
         )}
         {...props}
       >
@@ -143,8 +143,8 @@ const ModalContent = ({
         </Dialog>
       </ModalPrimitive>
     </ModalOverlayPrimitive>
-  )
-}
+  );
+};
 
 export {
   modalContentStyles,
@@ -158,5 +158,5 @@ export {
   ModalTitle,
   ModalTrigger,
   type ModalContentProps,
-  modalOverlayStyles
-}
+  modalOverlayStyles,
+};
