@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent } from 'react'
+import type { FormEvent } from 'react'
 
 import { toast } from 'sonner'
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Checkbox, Form, Link, TextField } from 'ui'

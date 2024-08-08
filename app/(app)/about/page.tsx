@@ -1,5 +1,5 @@
 import { Container } from '@/components/container'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'About'
